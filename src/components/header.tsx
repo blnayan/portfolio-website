@@ -11,10 +11,13 @@ export function Header({
   ...props
 }: React.ComponentProps<"header">) {
   return (
-    <header className={cn("border-b sticky", className)} {...props}>
+    <header
+      className={cn("border-b sticky top-0 bg-background", className)}
+      {...props}
+    >
       <div className="container flex h-14 items-center">
         <h1 className="font-semibold">Nayan Bhut</h1>
-        <nav className="flex flex-1 justify-end">
+        <nav className="flex flex-1 justify-end gap-1">
           {links.map((link) => (
             <Link
               key={link.href}
