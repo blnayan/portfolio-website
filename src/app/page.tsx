@@ -53,7 +53,7 @@ interface Project {
   title: string;
   description: string;
   tags: string[];
-  link: string;
+  github: string;
 }
 
 const projects: Project[] = [
@@ -62,21 +62,21 @@ const projects: Project[] = [
     description:
       "Full‑stack real‑time messaging (React/Next.js, TypeScript, Node.js, Socket.IO) with cookie session auth (Better‑Auth) and MongoDB. REST endpoints for messages and friendships.",
     tags: ["Next.js", "TypeScript", "Socket.IO", "MongoDB"],
-    link: "https://github.com/blnayan/wizardmessenger",
+    github: "https://github.com/blnayan/wizardmessenger",
   },
   {
     title: "Attentive Home Care",
     description:
       "Responsive marketing site with integrated Calendly; automated scheduling reduced manual time by 70% (~$8k/yr). SEO + accessible UI increased inquiries/conversions by ~40%.",
     tags: ["React", "Next.js", "Calendly", "SEO"],
-    link: "https://github.com/blnayan/attentive-home-care",
+    github: "https://github.com/blnayan/attentive-home-care",
   },
   {
     title: "Chessboard",
     description:
       "Full‑stack chess web app (React, Node.js, Socket.IO) with move validation and real‑time board updates; custom responsive drag‑and‑drop UI.",
     tags: ["React", "Socket.IO", "Node.js"],
-    link: "https://github.com/blnayan/chessboard",
+    github: "https://github.com/blnayan/chessboard",
   },
 ];
 
@@ -149,8 +149,8 @@ const education: Degree[] = [
   {
     school: "George Mason University",
     location: "Fairfax, VA",
-    degreeMajor: "B.S. Information Technology",
-    graduationDate: "December, 2025",
+    degreeMajor: "Bachelor of Science, Information Technology",
+    graduationDate: "December 2025",
     gpa: 3.95,
     honors: ["Dean’s list all applicable semesters"],
     relevantCourses: [
@@ -239,7 +239,7 @@ export default function Home() {
         <div className="space-y-6">
           {experiences.map((exp, i) => (
             <Card key={i}>
-              <CardHeader className="flex gap-0 md:gap-4">
+              <CardHeader className="flex gap-4">
                 <div className="space-y-1">
                   <CardTitle className="text-lg">
                     {exp.role}
@@ -269,6 +269,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <Separator className="container" />
       {/* Projects */}
       <section id="projects" className="container py-16 space-y-8 scroll-m-16">
         <h2 className="text-3xl font-semibold">Projects</h2>
@@ -282,7 +283,7 @@ export default function Home() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-sm">{project.description}</p>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap">
                   {project.tags.map((tag, i) => (
                     <Badge variant="secondary" key={i}>
                       {tag}
@@ -292,8 +293,9 @@ export default function Home() {
               </CardContent>
               <CardFooter className="flex">
                 <Button size="sm" variant="outline" asChild>
-                  <Link href={project.link} target="_blank">
-                    Code
+                  <Link href={project.github} target="_blank">
+                    <GitHubLogo />
+                    GitHub
                   </Link>
                 </Button>
               </CardFooter>
@@ -301,6 +303,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <Separator className="container" />
       {/* Technical Skills */}
       <section id="skills" className="container py-16 space-y-8 scroll-m-16">
         <h2 className="text-3xl font-semibold">Technical Skills</h2>
@@ -308,7 +311,7 @@ export default function Home() {
           {skillCategories.map((category, i) => (
             <div key={i} className="space-y-2">
               <h3 className="text-lg">{category.name}:</h3>
-              <div className="flex gap-2">
+              <div className="flex gap-2 flex-wrap">
                 {category.skills.map((skill, i) => (
                   <Badge key={i} variant="secondary">
                     {skill}
@@ -319,10 +322,51 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <Separator className="container" />
       {/* Education */}
       <section id="education" className="container py-16 space-y-8 scroll-m-16">
         <h2 className="text-3xl font-semibold">Education</h2>
-        <div className="space-y-6"></div>
+        <div className="space-y-6">
+          {education.map((degree, i) => (
+            <Card key={i}>
+              <CardHeader className="flex gap-4">
+                <div className="space-y-1">
+                  <CardTitle className="text-lg">
+                    {degree.degreeMajor}
+                  </CardTitle>
+                  <CardDescription>
+                    {degree.school}
+                    <span className="font-black mx-1"> · </span>
+                    {degree.location}
+                    <span className="font-black mx-1"> · </span>
+                    GPA: {degree.gpa}
+                    <span className="md:hidden">
+                      <span className="font-black mx-1"> · </span>
+                      {degree.graduationDate}
+                    </span>
+                  </CardDescription>
+                </div>
+                <CardDescription className="flex-1 text-end hidden md:block">
+                  {degree.graduationDate}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-sm space space-y-1">
+                {degree.honors && (
+                  <p>
+                    <span className="font-semibold">Honors: </span>
+                    {degree.honors.join(", ")}
+                  </p>
+                )}
+                {degree.relevantCourses && (
+                  <p>
+                    <span className="font-semibold">Relevant Courses: </span>
+                    {degree.relevantCourses.join(", ")}
+                  </p>
+                )}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </section>
     </>
   );
