@@ -170,7 +170,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="container py-16 grid md:grid-cols-2 gap-16 md:gap-8">
+      <section className="container py-16 grid md:grid-cols-2 gap-16 md:gap-8 scroll-m-16">
         <div className="w-full my-auto">
           <h1 className="text-4xl font-bold">Nayan Bhut</h1>
           <p className="mt-2">
@@ -291,7 +291,7 @@ export default function Home() {
                   ))}
                 </div>
               </CardContent>
-              <CardFooter className="flex">
+              <CardFooter className="flex mt-auto">
                 <Button size="sm" variant="outline" asChild>
                   <Link href={project.github} target="_blank">
                     <GitHubLogo />

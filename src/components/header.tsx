@@ -2,8 +2,11 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "#hero", label: "Home" },
-  { href: "#about", label: "About" },
+  { href: "/", label: "Home" },
+  { href: "#experiences", label: "Experiences" },
+  { href: "#projects", label: "Project" },
+  { href: "#skills", label: "Skills" },
+  { href: "#education", label: "Education" },
 ];
 
 export function Header({
@@ -12,7 +15,7 @@ export function Header({
 }: React.ComponentProps<"header">) {
   return (
     <header
-      className={cn("border-b sticky top-0 bg-background", className)}
+      className={cn("border-b sticky top-0 bg-background z-1", className)}
       {...props}
     >
       <div className="container flex h-14 items-center">
