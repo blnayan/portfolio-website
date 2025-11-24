@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { Badge } from "./ui/badge";
+import { toast } from "sonner";
 
 export function CopyToClipboardButton({
   text,
@@ -11,8 +12,13 @@ export function CopyToClipboardButton({
 }: { text: string } & React.ComponentProps<"button">) {
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(text);
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      toast.error("Failed to copy");
+      return;
+    }
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
