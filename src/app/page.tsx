@@ -26,14 +26,14 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    role: "Software Developer AI Trainer",
+    role: "AI Trainer (Freelance)",
     company: "Data Annotation",
     location: "Remote, US",
     duration: "October 2024 - Present",
     points: [
-      "Trained and optimized artificial intelligence and machine learning models by implementing advanced algorithms, improving accuracy and performance across various software systems.",
-      "Evaluated and debugged AI code outputs, identifying logic errors and optimizing algorithmic performance to enhance model precision and coding accuracy.",
-      "Utilized a multitude of programming languages and libraries such as Python, Java, C, C++, pandas, OpenCV, and PyTorch to develop, test, and debug AI solutions, ensuring high-quality, scalable results.",
+      "Optimized Large Language Model performance by implementing advanced algorithms, resulting in measurable improvements in accuracy and system-wide reasoning capabilities.",
+      "Enhanced AI code generation quality by identifying logic errors and debugging outputs across Python, Java, and C++, ensuring production-grade code reliability.",
+      "Engineered scalable AI testing solutions using PyTorch, OpenCV, and pandas to validate model precision for high-consequence software environments.",
     ],
   },
   {
@@ -42,9 +42,9 @@ const experiences: Experience[] = [
     location: "Fairfax, VA",
     duration: "May 2024 - August 2024",
     points: [
-      "Taught core programming concepts through Scratch, introducing students to logic and algorithms.",
-      "Developed interactive coding challenges and mini-projects that strengthened computational thinking and creativity.",
-      "Configured and maintained classroom systems, troubleshooting software and hardware for smooth sessions.",
+      "Facilitated foundational software engineering knowledge for 30+ students by designing interactive Scratch modules focused on algorithmic logic and modular design.",
+      "Maintained 100% instructional uptime by proactively troubleshooting hardware/software issues and managing local classroom infrastructure.",
+      "Improved student project success rates by leading collaborative coding labs that emphasized creative problem-solving and systematic debugging.",
     ],
   },
 ];
@@ -58,13 +58,6 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Wizard Messenger",
-    description:
-      "Full‑stack real‑time messaging (React/Next.js, TypeScript, Node.js, Socket.IO) with cookie session auth (Better‑Auth) and MongoDB. REST endpoints for messages and friendships.",
-    tags: ["Next.js", "TypeScript", "Socket.IO", "MongoDB"],
-    github: "https://github.com/blnayan/wizardmessenger",
-  },
-  {
     title: "Attentive Home Care",
     description:
       "Responsive marketing site with integrated Calendly; automated scheduling reduced manual time by 70% (~$8k/yr). SEO + accessible UI increased inquiries/conversions by ~40%.",
@@ -77,6 +70,13 @@ const projects: Project[] = [
       "Full‑stack chess web app (React, Node.js, Socket.IO) with move validation and real‑time board updates; custom responsive drag‑and‑drop UI.",
     tags: ["React", "Socket.IO", "Node.js"],
     github: "https://github.com/blnayan/chessboard",
+  },
+  {
+    title: "Wizard Messenger",
+    description:
+      "Full‑stack real‑time messaging (React/Next.js, TypeScript, Node.js, Socket.IO) with cookie session auth (Better‑Auth) and MongoDB. REST endpoints for messages and friendships.",
+    tags: ["Next.js", "TypeScript", "Socket.IO", "MongoDB"],
+    github: "https://github.com/blnayan/wizardmessenger",
   },
 ];
 
@@ -151,7 +151,7 @@ const education: Degree[] = [
     location: "Fairfax, VA",
     degreeMajor: "Bachelor of Science, Information Technology",
     graduationDate: "December 2025",
-    gpa: 3.95,
+    gpa: 3.94,
     honors: ["Dean’s list all applicable semesters"],
     relevantCourses: [
       "Data Structures & Algorithms",
@@ -207,7 +207,7 @@ export default function Home() {
             </CopyToClipboardButton>
           </div>
         </div>
-        <div className="w-full">
+        {/* <div className="w-full">
           <Card>
             <CardHeader className="flex">
               <CardTitle className="text-lg">Quick Links</CardTitle>
@@ -227,7 +227,7 @@ export default function Home() {
               </Button>
             </CardContent>
           </Card>
-        </div>
+        </div> */}
       </section>
       <Separator className="container" />
       {/* Work Experience */}
